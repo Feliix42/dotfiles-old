@@ -44,12 +44,13 @@ alias suber='ssh feliix@regulus.uberspace.de'
 alias todo='vim ~/todo/todo'
 alias swt='cd /Users/Felix/projects/swt15w1'
 alias nein='echo Doch!'
-alias rebrew='brew update && brew upgrade'
+alias rebrew='brew update && brew upgrade && brew cleanup'
 alias git-yolo='git push --force'
 alias blame-hitler='git reset --hard HEAD'
 alias safety-first='git pull --rebase'
 alias finder_show="defaults write com.apple.finder AppleShowAllFiles YES && sudo killall Finder"
 alias finder_hide="defaults write com.apple.finder AppleShowAllFiles NO && sudo killall Finder"
+alias full-update="brew update && brew upgrade && brew cleanup && apm update && gem update"
 
 # source some private stuff
 source ~/.privatecommands
