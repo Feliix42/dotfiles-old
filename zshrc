@@ -5,7 +5,7 @@ export ZSH=/Users/Felix/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="powerlevel9k"
+ZSH_THEME="powerlevel9k/powerlevel9k"
 
 # SETTINGS for powerlevel9k
 DEFAULT_USER="felix"
@@ -26,7 +26,9 @@ plugins=(git)
 
 # User configuration
 
-export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/local/git/bin:/usr/local/go/bin:/usr/local/MacGPG2/bin:/usr/texbin:/Users/Felix/go/bin"
+export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/TeX/texbin"
+# old PATH:
+# export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/local/git/bin:/usr/local/go/bin:/usr/local/MacGPG2/bin:/usr/texbin:/Users/Felix/go/bin"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
@@ -35,14 +37,12 @@ source $ZSH/oh-my-zsh.sh
 eval $(thefuck --alias)
 
 # Start certain applications from the terminal
-alias idea="open -a IntelliJ\ IDEA\ 15"
 alias itunes="open -a iTunes"
 
 
-#useful terminal shortcuts
+# useful terminal shortcuts
 alias suber='ssh feliix@regulus.uberspace.de'
 alias todo='vim ~/todo/todo'
-alias swt='cd /Users/Felix/projects/swt15w1'
 alias nein='echo Doch!'
 alias rebrew='brew update && brew upgrade && brew cleanup'
 alias git-yolo='git push --force'
@@ -50,10 +50,15 @@ alias blame-hitler='git reset --hard HEAD'
 alias safety-first='git pull --rebase'
 alias finder_show="defaults write com.apple.finder AppleShowAllFiles YES && sudo killall Finder"
 alias finder_hide="defaults write com.apple.finder AppleShowAllFiles NO && sudo killall Finder"
-alias full-update="brew update && brew upgrade && brew cleanup && apm update && gem update"
+alias full-update="brew update && brew upgrade && brew cleanup && apm update --confirm false && sudo gem update && upgrade_oh_my_zsh"
+alias ossl="LDFLAGS=\"-L/usr/local/opt/openssl/lib\" CFLAGS=\"-I/usr/local/opt/openssl/include\""
+
 
 # source some private stuff
 source ~/.privatecommands
 
 # added by travis gem
 [ -f /Users/Felix/.travis/travis.sh ] && source /Users/Felix/.travis/travis.sh
+
+# added by travis gem
+[ -f /Users/felix/.travis/travis.sh ] && source /Users/felix/.travis/travis.sh
