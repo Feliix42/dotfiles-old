@@ -11,6 +11,7 @@ ZSH_THEME="powerlevel9k/powerlevel9k"
 DEFAULT_USER="felix"
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status time)
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(os_icon dir vcs)
+# POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=('▽' dir vcs)
 # POWERLEVEL9K_OS_ICON_BACKGROUND='white'
 # POWERLEVEL9K_OS_ICON_FOREGROUND='black'
 # POWERLEVEL9K_DIR_BACKGROUND='166'
@@ -26,7 +27,7 @@ plugins=(git)
 
 # User configuration
 
-export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/TeX/texbin"
+export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/sbin:/Library/TeX/texbin:/Users/felix/.multirust/toolchains/stable/cargo/bin"
 # old PATH:
 # export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/local/git/bin:/usr/local/go/bin:/usr/local/MacGPG2/bin:/usr/texbin:/Users/Felix/go/bin"
 # export MANPATH="/usr/local/man:$MANPATH"
@@ -37,10 +38,11 @@ source $ZSH/oh-my-zsh.sh
 eval $(thefuck --alias)
 
 # Start certain applications from the terminal
-alias itunes="open -a iTunes"
+alias openitunes="open -a iTunes"
 
 
 # useful terminal shortcuts
+alias fucking='sudo'
 alias suber='ssh feliix@regulus.uberspace.de'
 alias todo='vim ~/todo/todo'
 alias nein='echo Doch!'
@@ -52,7 +54,9 @@ alias finder_show="defaults write com.apple.finder AppleShowAllFiles YES && sudo
 alias finder_hide="defaults write com.apple.finder AppleShowAllFiles NO && sudo killall Finder"
 alias full-update="brew update && brew upgrade && brew cleanup && apm update --confirm false && sudo gem update && upgrade_oh_my_zsh"
 alias ossl="LDFLAGS=\"-L/usr/local/opt/openssl/lib\" CFLAGS=\"-I/usr/local/opt/openssl/include\""
-
+alias ncur="LDFLAGS=\"-L/usr/local/opt/ncurses/lib\" CFLAGS=\"-I/usr/local/opt/ncurses/include\""
+alias fucking-pull="git reset --hard HEAD && git pull"
+alias calculator="python3 -i -c 'from math import *'"
 
 # source some private stuff
 source ~/.privatecommands
@@ -60,5 +64,3 @@ source ~/.privatecommands
 # added by travis gem
 [ -f /Users/Felix/.travis/travis.sh ] && source /Users/Felix/.travis/travis.sh
 
-# added by travis gem
-[ -f /Users/felix/.travis/travis.sh ] && source /Users/felix/.travis/travis.sh
